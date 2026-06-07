@@ -514,8 +514,11 @@ let currentScorePath = '';
 if (certModal && closeCertModalBtn && modalCertImg) {
     certCards.forEach((card) => {
         card.addEventListener('click', () => {
-            currentCertPath = card.getAttribute('data-cert');
-            currentScorePath = card.getAttribute('data-score');
+            const certImg = card.querySelector('.cert-img');
+            const scoreImg = card.querySelector('.cert-score-img');
+
+            currentCertPath = certImg ? certImg.src : '';
+            currentScorePath = scoreImg ? scoreImg.src : '';
 
             modalCertImg.src = currentCertPath;
 
